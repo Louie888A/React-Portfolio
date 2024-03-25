@@ -7,12 +7,12 @@ function ProjectsGallery() {
     <>
       <h2 className="text-center mt-4 title-text">Project Gallery</h2>
       <div className="container-fluid mt-4">
-        <div className="row justify-content-center mt-4 mb-4">
+        <div className="row justify-content-center">
           {projectlist.map((project) => {
             return (
               <div
                 key={project.id}
-                className="projectcard col-md-4 col-lg-4 col-xl-4 col-xxl-4 col-sm-6 col-xs-6"
+                className="projectcard col col-md-4 col-lg-3 col-sm-6"
               >
                 <div
                   className=" card mb-3 py-2 px-3 gap-2"
