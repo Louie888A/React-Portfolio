@@ -86,7 +86,7 @@ export default function Contact() {
                 placeholder="Your Email *"
               />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <textarea
                 className="messagearea form-control"
                 value={message}
