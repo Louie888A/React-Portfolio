@@ -1,59 +1,113 @@
-import React from "react";
+import React, { useState } from "react";
 import "../style/contact.css";
-const Contact = () => {
-  function handleSubmit(event) {
-    event.preventDefault();
-    alert("Thank you for contacting me. I'll get back to you shortly!");
+export default function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const [error, setError] = useState("");
+
+  function onSubmit(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    fetch("https://formcarry.com/s/zAHmLgrSAFb", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, message }),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.code === 200) {
+          alert("We received your submission, thank you!");
+        } else if (response.code === 422) {
+          setError(response.message);
+        } else {
+          setError(response.message);
+        }
+      })
+      .catch((error) => {
+        setError(error.message ? error.message : error);
+      });
   }
 
   return (
-    <>
-      <div className="container-fluid contact-container">
-        <div className="row">
-          <div className="col contact-info">
-            <h1 className="contact-title">Contact Me</h1>
-            <a href="https://www.linkedin.com/in/vicky-loui/">LinkedIn</a>
-            <p className="contact-text">
-              I'm always open to discussing projects, so feel free to connect
-              with me on LinkedIn!
+    <form onSubmit={(e) => onSubmit(e)}>
+      <div className="container contact-form">
+        <div className="row mt-3 mb-3 ml-3 mr-3 text-center">
+          <div className="col-md-6">
+            <h3 className="title">Get in touch</h3>
+            <p>
+              I am always open to new opportunities. Feel free to contact me.
             </p>
-            <a href="https://github.com/Louie888A">Github</a>
-            <p className="contact-text">
-              I'm always looking for new projects to work on, so feel free to
-              check out my Github for more projects!
+            <p>
+              <i className="fa fa-map-marker mr-3"></i>
             </p>
-            <a href="mailto:5kNnN@example.com">Email</a>
-            <p className="contact-text">
-              If you have any questions, comments, or suggestions, feel free to
-              reach out!
+            <p>
+              <i>
+                <i className="fa fa-github logo-github">
+                  https://github.com/Louie888A
+                </i>
+              </i>
+            </p>
+            <p>
+              <i>
+                <i className="fa fa-linkedin mr-3"></i>
+              </i>
+            </p>
+            <p>
+              <i className="fa fa-envelope mr-3"></i>
+              <a href="mailto:9394hohoho@gmail.com">Email me</a>
             </p>
           </div>
+          <div className="col-md-6">
+            <h3 className="title">Drop me a message</h3>
+            <div className="form-group">
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Your Name *"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                id="name"
+              />
+            </div>
 
-          <div className="col contact-form">
-            <h1 className="contact-title">Contact Me</h1>
-            <form className="form">
-              <label htmlFor="name">Name:</label>
-              <br></br>
-              <input type="text" id="name" name="name" />
-              <label htmlFor="email">Email:</label>
-              <br></br>
-              <input type="email" id="email" name="email" />
-              <label htmlFor="message">Message:</label>
-              <br></br>
+            <div className="form-group">
+              <input
+                className="form-control"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                id="email"
+                placeholder="Your Email *"
+              />
+            </div>
+            <div class="form-group">
               <textarea
+                className="messagearea form-control"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 id="message"
-                name="message"
-                rows="4"
-                cols="48"
+                placeholder="Enter your message..."
+                rows="5"
               ></textarea>
-              <input type="submit" value="Submit" onClick={handleSubmit} />
-            </form>
+            </div>
+            <div className="form-group">
+              <button
+                className="btn btn-warning btn-control"
+                type="submit"
+                style={{ width: "60%", marginTop: "5%" }}
+              >
+                Send
+              </button>
+            </div>
           </div>
         </div>
       </div>
-      ;
-    </>
+    </form>
   );
-};
-
-export default Contact;
+}

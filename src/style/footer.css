@@ -1,4 +1,3 @@
-/* body{margin-top:20px;} */
 .footer {
   background: #040918;
   padding-bottom: 0px;
@@ -54,7 +53,7 @@
   border-radius: 50%;
   line-height: 40px;
   box-sizing: border-box;
-  text-decoration: none;
+
   -webkit-transition: 0.3s;
   transition: 0.3s;
   color: #fff;

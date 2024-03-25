@@ -15,10 +15,10 @@
   },
   {
     "id": 3,
-    "title": "Work-Day-Scheduler",
-    "deployedurl": "https://louie888a.github.io/Work-Day-Scheduler/",
-    "Githuburl": "git@github.com:Louie888A/Work-Day-Scheduler.git",
-    "image": "https://louie888a.github.io/picreactpofo/Work-Day-Scheduler.png"
+    "title": "CareerSync - Job Search Platform",
+    "deployedurl": "https://career-sync.netlify.app/",
+    "Githuburl": "git@github.com:sunielmudhar/CareerSync.git",
+    "image": "https://louie888a.github.io/picreactpofo/CareerSync.png"
   },
   {
     "id": 4,
@@ -40,5 +40,12 @@
     "deployedurl": "https://louie888a.github.io/Code-Bootstrap-Portfolio/",
     "Githuburl": "git@github.com:Louie888A/Bootstrap-Portfolio.git",
     "image": "https://louie888a.github.io/picreactpofo/Bootstrap-Portfolio.png"
+  },
+  {
+    "id": 7,
+    "title": "Work-Day-Scheduler",
+    "deployedurl": "https://louie888a.github.io/Work-Day-Scheduler/",
+    "Githuburl": "git@github.com:Louie888A/Work-Day-Scheduler.git",
+    "image": "https://louie888a.github.io/picreactpofo/Work-Day-Scheduler.png"
   }
 ]
